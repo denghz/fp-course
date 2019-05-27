@@ -76,7 +76,7 @@ headOr ::
   -> List a
   -> a
 headOr b Nil = b
-headOr _ (x :. xs)= x
+headOr _ (x :. _)= x
 
 -- | The product of the elements of a list.
 --
@@ -116,7 +116,7 @@ sum = foldRight (+) 0
 length ::
   List a
   -> Int
-length = foldRight (\_ l -> 1 + l) 0
+length = foldRight (\x l -> 1 + l) 0
 
 -- | Map the given function on each element of the list.
 --
@@ -233,11 +233,8 @@ flattenAgain = flatMap id
 seqOptional ::
   List (Optional a)
   -> Optional (List a)
-seqOptional Nil = Full Nil
-seqOptional (Full x :. xs) = case seqOptional xs of
-                                      Empty -> Empty 
-                                      Full xs' -> Full (x :. xs')
-seqOptional (Empty :. _) = Empty
+seqOptional =
+  error "todo: Course.List#seqOptional"
 
 -- | Find the first element in the list matching the predicate.
 --
@@ -259,7 +256,8 @@ find ::
   (a -> Bool)
   -> List a
   -> Optional a
-find f xs = 
+find =
+  error "todo: Course.List#find"
 
 -- | Determine if the length of the given list is greater than 4.
 --

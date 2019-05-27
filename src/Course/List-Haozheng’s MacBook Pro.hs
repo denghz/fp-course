@@ -75,8 +75,8 @@ headOr ::
   a
   -> List a
   -> a
-headOr b Nil = b
-headOr _ (x :. xs)= x
+headOr Nil b = b
+headOr (x :. xs) = x
 
 -- | The product of the elements of a list.
 --
@@ -105,7 +105,8 @@ product = foldRight (*) 1
 sum ::
   List Int
   -> Int
-sum = foldRight (+) 0
+sum =
+  error "todo: Course.List#sum"
 
 -- | Return the length of the list.
 --
@@ -116,7 +117,8 @@ sum = foldRight (+) 0
 length ::
   List a
   -> Int
-length = foldRight (\_ l -> 1 + l) 0
+length =
+  error "todo: Course.List#length"
 
 -- | Map the given function on each element of the list.
 --
@@ -130,7 +132,8 @@ map ::
   (a -> b)
   -> List a
   -> List b
-map f = foldRight (\x xs -> f x :. xs) Nil
+map =
+  error "todo: Course.List#map"
 
 -- | Return elements satisfying the given predicate.
 --
@@ -146,7 +149,8 @@ filter ::
   (a -> Bool)
   -> List a
   -> List a
-filter f = foldRight (\x xs -> if f x then x :. xs else xs) Nil
+filter =
+  error "todo: Course.List#filter"
 
 -- | Append two lists to a new list.
 --
@@ -164,7 +168,8 @@ filter f = foldRight (\x xs -> if f x then x :. xs else xs) Nil
   List a
   -> List a
   -> List a
-(++) xs ys = foldRight (:.) ys xs
+(++) =
+  error "todo: Course.List#(++)"
 
 infixr 5 ++
 
@@ -181,7 +186,8 @@ infixr 5 ++
 flatten ::
   List (List a)
   -> List a
-flatten = foldRight (++) Nil
+flatten =
+  error "todo: Course.List#flatten"
 
 -- | Map a function then flatten to a list.
 --
@@ -197,7 +203,8 @@ flatMap ::
   (a -> List b)
   -> List a
   -> List b
-flatMap f = flatten . map f 
+flatMap =
+  error "todo: Course.List#flatMap"
 
 -- | Flatten a list of lists to a list (again).
 -- HOWEVER, this time use the /flatMap/ function that you just wrote.
@@ -206,7 +213,8 @@ flatMap f = flatten . map f
 flattenAgain ::
   List (List a)
   -> List a
-flattenAgain = flatMap id
+flattenAgain =
+  error "todo: Course.List#flattenAgain"
 
 -- | Convert a list of optional values to an optional list of values.
 --
@@ -233,11 +241,8 @@ flattenAgain = flatMap id
 seqOptional ::
   List (Optional a)
   -> Optional (List a)
-seqOptional Nil = Full Nil
-seqOptional (Full x :. xs) = case seqOptional xs of
-                                      Empty -> Empty 
-                                      Full xs' -> Full (x :. xs')
-seqOptional (Empty :. _) = Empty
+seqOptional =
+  error "todo: Course.List#seqOptional"
 
 -- | Find the first element in the list matching the predicate.
 --
@@ -259,7 +264,8 @@ find ::
   (a -> Bool)
   -> List a
   -> Optional a
-find f xs = 
+find =
+  error "todo: Course.List#find"
 
 -- | Determine if the length of the given list is greater than 4.
 --
