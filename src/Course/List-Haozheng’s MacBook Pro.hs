@@ -295,7 +295,7 @@ lengthGT4 _ = False
 reverse ::
   List a
   -> List a
-reverse (x:.xs )= foldRight (:) x xs
+reverse = 
 
 -- | Produce an infinite `List` that seeds with the given value at its head,
 -- then runs the given function for subsequent elements
