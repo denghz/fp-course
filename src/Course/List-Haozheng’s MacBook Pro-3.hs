@@ -295,7 +295,8 @@ lengthGT4 _ = False
 reverse ::
   List a
   -> List a
-reverse = foldRight (:.) Nil
+reverse Nil = Nil
+reverse (x:.xs )= foldRight (:.) (x :. Nil) xs
 
 -- | Produce an infinite `List` that seeds with the given value at its head,
 -- then runs the given function for subsequent elements
@@ -323,7 +324,9 @@ produce f x = x :. produce f (f x)
 notReverse ::
   List a
   -> List a
-notReverse = error "todo: Is it even possible?"
+notReverse Nil = Nil
+
+  error "todo: Is it even possible?"
 
 ---- End of list exercises
 
