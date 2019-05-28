@@ -278,7 +278,7 @@ find f (x:.xs) = if f x then Full x else find f xs
 lengthGT4 ::
   List a
   -> Bool
-lengthGT4 (x :. y :. z :. t :. ts)= True
+lengthGT4 (_ :. _ :. _ :. _ :. _)= True
 lengthGT4 _ = False 
 
 -- | Reverse a list.
@@ -295,7 +295,7 @@ lengthGT4 _ = False
 reverse ::
   List a
   -> List a
-reverse = foldRight (:.) Nil
+reverse = foldRight (flip (:.)) Nil
 
 -- | Produce an infinite `List` that seeds with the given value at its head,
 -- then runs the given function for subsequent elements
